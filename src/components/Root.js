@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar'
+import Navbar from './Navbar';
+import Content from './Content'
+import Route from 'react-router';
 
-const RootContainer = ({children}) => {
-    return (
-      <div>
-        <Navbar />
-        { children }
-      </div>
-    )
+const Root = () => {
+  return (
+    <div>
+      <Navbar />
+      <Content />
+    </div>
+  )
 }
 
-export default RootContainer;
+export default Root;
