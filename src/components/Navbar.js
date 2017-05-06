@@ -13,7 +13,7 @@ const Navbar = (props) => {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <NavLink to="/about" className="navbar-brand">Morning Pages</NavLink>
+            <NavLink to="/about" className="navbar-brand">Three Pages</NavLink>
           </div>
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
