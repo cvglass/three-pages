@@ -5,12 +5,14 @@ import { Switch, Route } from 'react-router'
 
 
 import About from './About';
+import Archives from './Archives'
 
 
 const Content = () => {
     return(
       <Switch>
         <Route path='/about' component={About} />
+        <Route path='/old' component={Archives} />
       </Switch>
     )
 }
