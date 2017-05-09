@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import store from '../store';
 import { getArchives } from '../actionCreators';
@@ -12,13 +13,13 @@ class Archives extends React.Component {
     }
   }
 
-  componentWillMount() {
-    store.dispatch(getArchives())
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log('next props', nextProps)
-    this.setState({entries: nextProps.entries})
+  componentDidMount() {
+    fetch('/api/entries')
+      .then(res => res.json())
+      .then(entries => {
+        console.log(entries)
+        this.setState({entries})
+      })
   }
 
   render() {
@@ -26,7 +27,6 @@ class Archives extends React.Component {
       <div className="container">
         <div className="list-group">
           {this.state.entries.map(entry => {
-            console.log('entry', entry)
             return(
               <a key={entry.id} className="list-group-item"><Link to={`/entry/${entry.id}`}>{entry.month}/{entry.day}/{entry.year}</Link></a>
             )
@@ -37,4 +37,4 @@ class Archives extends React.Component {
   }
 }
 
-export default Archives;
+export default Archives
