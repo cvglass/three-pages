@@ -1,26 +1,47 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
-const Entry = (props) => {
-  return (
-    <div>
-      <div className="jumbotron">
-        <div className="container">
-          <h3>{props.entry.month}/{props.entry.day}/{props.entry.year}</h3>
-          <p>{props.entry.text}</p>
-          <div className="btn-group btn-group-xs" role="group" aria-label="...">
-            <button type="button" className="btn btn-default"><Link to={`${props.entry.id}/edit`}>edit</Link></button>
-            <button type="button" className="btn btn-default"><a href={`/api/entries/${props.entry.id}/delete`}>delete</a></button>
+class Entry extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      entry: {}
+    }
+  }
+
+  componentDidMount() {
+    fetch(`/api/entries/${this.props.id}`)
+      .then(res => res.json())
+      .then(entry => this.setState({entry}))
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="jumbotron">
+          <div className="container">
+            <h3>{this.state.entry.month}/{this.state.entry.day}/{this.state.entry.year}</h3>
+            <p>{this.state.entry.text}</p>
+            <div className="btn-group btn-group-xs" role="group" aria-label="...">
+              <button type="button" className="btn btn-default"><Link to={`${this.state.entry.id}/edit`}>edit</Link></button>
+              <button type="button" className="btn btn-default"><a href={`/api/entries/${this.state.entry.id}/delete`}>delete</a></button>
+            </div>
           </div>
         </div>
+        <div className="container">
+          <h3>Overall, you're feeling <em>{this.state.entry.sentiment}</em> today,</h3>
+          <h5>because you used the following words: {this.state.entry.topWords}</h5>
+        </div>
       </div>
-      <div className="container">
-        <h3>Overall, you're feeling <em>{props.entry.sentiment}</em> today,</h3>
-        <h5>because you used the following words: {props.entry.topWords}</h5>
-      </div>
-    </div>
-  )
+    )
+  }
+
 }
 
-export default Entry;
+const mapStateToProps = (state, ownProps) => ({
+  id: ownProps.match.params.id
+})
+
+export default withRouter(connect(mapStateToProps)(Entry))
