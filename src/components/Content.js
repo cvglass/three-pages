@@ -10,7 +10,7 @@ const Content = () => {
       <Switch>
         <Route path='/about' component={About} />
         <Route path='/old' component={Archives} />
-        <Route path='/entry' component={Entry} />
+        <Route path='/entry/:id' component={Entry} />
       </Switch>
     )
 }

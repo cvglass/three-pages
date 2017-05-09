@@ -17,7 +17,6 @@ class Archives extends React.Component {
     fetch('/api/entries')
       .then(res => res.json())
       .then(entries => {
-        console.log(entries)
         this.setState({entries})
       })
   }
