@@ -25,8 +25,8 @@ class Entry extends React.Component {
             <h3>{this.state.entry.month}/{this.state.entry.day}/{this.state.entry.year}</h3>
             <p>{this.state.entry.text}</p>
             <div className="btn-group btn-group-xs" role="group" aria-label="...">
-              <button type="button" className="btn btn-default"><Link to={`${this.state.entry.id}/edit`}>edit</Link></button>
-              <button type="button" className="btn btn-default"><a href={`/api/entries/${this.state.entry.id}/delete`}>delete</a></button>
+              <button type="button" className="btn btn-default"><Link to={`/entry/${this.state.entry.id}/edit`}>edit</Link></button>
+              <button type="button" className="btn btn-default"><Link to={`/api/entries/${this.state.entry.id}/delete`}>delete</Link></button>
             </div>
           </div>
         </div>
