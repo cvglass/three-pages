@@ -27,7 +27,7 @@ class Archives extends React.Component {
         <div className="list-group">
           {this.state.entries.map(entry => {
             return(
-              <a key={entry.id} className="list-group-item"><Link to={`/entry/${entry.id}`}>{entry.month}/{entry.day}/{entry.year}</Link></a>
+              <Link to={`/entry/${entry.id}`} className="list-group-item" key={entry.id}>{entry.month}/{entry.day}/{entry.year}</Link>
             )
           })}
         </div>
@@ -37,3 +37,8 @@ class Archives extends React.Component {
 }
 
 export default Archives
+
+
+            // return(
+            //   <a key={entry.id} className="list-group-item"><Link to={`/entry/${entry.id}`}>{entry.month}/{entry.day}/{entry.year}</Link></a>
+            // )
