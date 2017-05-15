@@ -24,6 +24,10 @@ class Textbox extends React.Component {
     this.setState({entry: {}})
   }
 
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
   render() {
     if (!this.state.entry.month){
       var month = new Date().getMonth() + 1;
@@ -41,8 +45,6 @@ class Textbox extends React.Component {
       // var textAreaText = this.state.entry.text
     }
 
-    console.log(this.state)
-
     return (
       <div className="jumbotron">
         <div className="container">
@@ -50,7 +52,7 @@ class Textbox extends React.Component {
           <form method="POST" action={formAction}>
 
             <div className="form-group">
-              <textarea className="form-control" id="exampleTextarea" name="text" rows="15" value={this.state.value}/>
+              <textarea className="form-control" id="exampleTextarea" name="text" rows="15" value={this.state.value} onChange={this.handleChange}/>
             </div>
             <button type="submit" className="btn btn-default">Submit</button>
 
