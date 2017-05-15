@@ -37,8 +37,3 @@ class Archives extends React.Component {
 }
 
 export default Archives
-
-
-            // return(
-            //   <a key={entry.id} className="list-group-item"><Link to={`/entry/${entry.id}`}>{entry.month}/{entry.day}/{entry.year}</Link></a>
-            // )

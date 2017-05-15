@@ -19,6 +19,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+  console.log('HERE');
   Entry.create(req.body)
   .then(entry => {
     res.redirect('/entry/' + entry.id)
