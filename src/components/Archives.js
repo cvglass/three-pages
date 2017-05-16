@@ -21,6 +21,13 @@ class Archives extends React.Component {
       })
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    if(nextProps) {
+      fetch(`/api/entries/${nextProps.id}/delete`)
+    }
+  }
+
   render() {
     return (
       <div className="container">
