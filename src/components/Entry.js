@@ -26,7 +26,7 @@ class Entry extends React.Component {
             <p>{this.state.entry.text}</p>
             <div className="btn-group btn-group-xs" role="group" aria-label="...">
               <button type="button" className="btn btn-default"><Link to={`/entry/${this.state.entry.id}/edit`}>edit</Link></button>
-              <a href={`/api/entries/${this.props.id}/delete`}>delete</a>
+              <Link to={`/entry/${this.props.id}/delete`}>delete</Link>
             </div>
           </div>
         </div>

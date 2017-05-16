@@ -27,6 +27,20 @@ router.post('/', (req, res, next) => {
   .catch(next)
 })
 
+router.get('/:id/delete', (req, res, next) => {
+  Entry.findById(req.params.id)
+  .then(entry => {
+    return entry.destroy()
+  })
+  .then(() => {
+    res.status(200)
+  })
+  // .then(() => {
+  //   res.redirect('/old')
+  // })
+  .catch(next)
+});
+
 router.get('/:id', (req, res, next) => {
   Entry.findById(req.params.id)
   .then(entry => {
@@ -48,16 +62,5 @@ router.post('/:id/edit', (req, res, next) => {
     .then(updatedEntry => res.redirect('/entry/' + updatedEntry.id))
     .catch(next)
 })
-
-router.get('/:id/delete', (req, res, next) => {
-  Entry.findById(req.params.id)
-  .then(entry => {
-    entry.destroy()
-  })
-  .then(() => {
-    res.redirect('/old')
-  })
-  .catch(next)
-});
 
 module.exports = router;
