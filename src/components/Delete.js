@@ -7,15 +7,9 @@ class Delete extends React.Component {
     fetch(`/api/entries/${this.props.id}/delete`);
 
     setTimeout(function() {
-       return (
-        <Redirect to="/old" />
-       )
-      }, 500)
+       window.location = '/old'
+      }, 3000)
   }
-
-  // redirectToArchives() {
-  //   setTimeout(function(){ alert("Hello"); }, 500)
-  // }
 
   render() {
     return(
