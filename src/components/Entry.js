@@ -20,14 +20,12 @@ class Entry extends React.Component {
   render() {
     return (
       <div>
-        <div className="jumbotron">
-          <div className="container">
-            <h3>{this.state.entry.month}/{this.state.entry.day}/{this.state.entry.year}</h3>
-            <p>{this.state.entry.text}</p>
-            <div className="btn-group btn-group-xs" role="group" aria-label="...">
-              <button type="button" className="btn btn-default"><Link to={`/entry/${this.state.entry.id}/edit`}>edit</Link></button>
-              <Link to={`/entry/${this.props.id}/delete`}>delete</Link>
-            </div>
+        <div className="container">
+          <h3>{this.state.entry.month}/{this.state.entry.day}/{this.state.entry.year}</h3>
+          <p>{this.state.entry.text}</p>
+          <div className="btn-group btn-group-xs" role="group" aria-label="...">
+            <button type="button" className="btn btn-default"><Link to={`/entry/${this.state.entry.id}/edit`}>edit</Link></button>
+            <Link to={`/entry/${this.props.id}/delete`}>delete</Link>
           </div>
         </div>
         <div className="container">

@@ -46,18 +46,16 @@ class Textbox extends React.Component {
     }
 
     return (
-      <div className="jumbotron">
-        <div className="container">
-          <h3>{month}/{day}/{year}</h3>
-          <form method="POST" action={formAction}>
+      <div className="container">
+        <h3>{month}/{day}/{year}</h3>
+        <form method="POST" action={formAction}>
 
-            <div className="form-group">
-              <textarea className="form-control" id="exampleTextarea" name="text" rows="15" value={this.state.value} onChange={this.handleChange}/>
-            </div>
-            <button type="submit" className="btn btn-default">Submit</button>
+          <div className="form-group">
+            <textarea className="form-control" id="exampleTextarea" name="text" rows="15" value={this.state.value} onChange={this.handleChange}/>
+          </div>
+          <button type="submit" className="btn btn-default">Submit</button>
 
-          </form>
-        </div>
+        </form>
       </div>
     )
   }

@@ -13,10 +13,8 @@ class Delete extends React.Component {
 
   render() {
     return(
-      <div className="jumbotron">
-        <div className="container">
-          <p>Entry deleted. If page doesn't redirect in 5 seconds, click <Link to="/old">here</Link></p>
-        </div>
+      <div className="container">
+        <p>Entry deleted. If page doesn't redirect in 5 seconds, click <Link to="/old">here</Link></p>
       </div>
     )
   }
