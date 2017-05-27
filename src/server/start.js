@@ -11,12 +11,8 @@ module.exports = app
   .use(session({
     secret: 'asjgaskjgaiweg',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
   }))
-  .use((req, res, next) => {
-    console.log('session', req.session);
-    next();
-  })
   .use(express.static(resolve(__dirname, '..', 'public')))
   .use('/api', require('./api'))
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', '..', 'public', 'index.html')))

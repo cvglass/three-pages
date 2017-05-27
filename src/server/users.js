@@ -14,6 +14,7 @@ router.post('/login', (req, res, next) => {
       res.sendStatus(401);
     } else if(req.body.password === user.password) {
       req.session.userId = user.id;
+      // console.log('req.session', req.session)
       res.redirect('/about')
     } else {
       res.sendStatus(401)
