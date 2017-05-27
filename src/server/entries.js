@@ -19,7 +19,14 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-  Entry.create(req.body)
+  console.log('session', req.session)
+  Entry.create({
+    text: req.body.text,
+    month: req.body.month,
+    day: req.body.day,
+    year: req.body.day,
+    userId: req.session.userId
+  })
   .then(entry => {
     res.redirect('/entry/' + entry.id)
   })

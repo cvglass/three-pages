@@ -6,8 +6,8 @@ const Entry = db.define('entry', {
   month: Sequelize.STRING,
   day: Sequelize.STRING,
   year: Sequelize.STRING,
-  sentiment: Sequelize.STRING,
-  topWords: Sequelize.ARRAY(Sequelize.TEXT),
+  // sentiment: Sequelize.STRING,
+  // topWords: Sequelize.ARRAY(Sequelize.TEXT),
 }, {
   hooks: {
     beforeCreate: function(entry) {
