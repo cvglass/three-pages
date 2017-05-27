@@ -7,6 +7,7 @@ import Entry from './Entry';
 import Textbox from './Textbox';
 import TextboxContainer from './TextboxContainer';
 import Delete from './Delete';
+import Login from './Login';
 
 const Content = () => {
     return(
@@ -17,6 +18,7 @@ const Content = () => {
         <Route exact path='/entry/:id' component={Entry} />
         <Route exact path='/entry/:id/edit' component={TextboxContainer} />
         <Route exact path='/entry/:id/delete' component={Delete} />
+        <Route path="/login" component={Login} />
 
 
       </Switch>
