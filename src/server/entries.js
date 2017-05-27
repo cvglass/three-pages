@@ -19,7 +19,6 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
-  console.log('HERE');
   Entry.create(req.body)
   .then(entry => {
     res.redirect('/entry/' + entry.id)
@@ -35,9 +34,6 @@ router.get('/:id/delete', (req, res, next) => {
   .then(() => {
     res.status(200)
   })
-  // .then(() => {
-  //   res.redirect('/old')
-  // })
   .catch(next)
 });
 

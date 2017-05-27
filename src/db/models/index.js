@@ -4,6 +4,6 @@
   const Entry = require('./entry');
 
   module.exports = {
-    User: User,
-    Entry: Entry,
+    User,
+    Entry,
   }
