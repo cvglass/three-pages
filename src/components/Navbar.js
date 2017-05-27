@@ -21,7 +21,7 @@ const Navbar = (props) => {
               <li><NavLink to="/old">Old Entries</NavLink></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Login</a></li>
+              <li><NavLink to="/login">Login</NavLink></li>
               {/*<li><a href="../navbar-fixed-top/">Logout</a></li>*/}
             </ul>
           </div>

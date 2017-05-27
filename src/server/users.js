@@ -3,17 +3,23 @@ const router = new express.Router();
 
 const User = require('../db/models').User
 
-router.post('/', (req, res, next) => {
+router.post('/login', (req, res, next) => {
   User.findOne({
-    where: req.body
+    where: {
+      email: req.body.email
+    }
   })
   .then(user => {
     if(!user) {
       res.sendStatus(401);
+    } else if(req.body.password === user.password) {
+      req.session.userId = user.id;
+      res.redirect('/about')
     } else {
-      // req.sessions.userId = user.id;
-      res.sendStatus(200)
+      res.sendStatus(401)
     }
   })
   .catch(next)
 })
+
+module.exports = router;
